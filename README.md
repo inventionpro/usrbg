@@ -1,5 +1,5 @@
 # USRBG
-A usrbg wrapper for [usrbg](https://github.com/Discord-Custom-Covers/usrbg)
+A api wrapper for [usrbg](https://github.com/Discord-Custom-Covers/usrbg)
 
 ## Usage
 ```js
