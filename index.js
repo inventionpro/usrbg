@@ -19,6 +19,7 @@ class usrbg {
     }
   }
   has(id) {
+    if (!this.data) throw new Error('You need to use load before using has');
     if (this.v == 1) {
       return !!this.data.filter(e=>e.uid==id)[0];
     } else if (this.v == 2) {
@@ -26,6 +27,7 @@ class usrbg {
     }
   }
   get(id) {
+    if (!this.data) throw new Error('You need to use load before using get');
     if (!this.has(id)) return null;
     return this.v==1?this.data.filter(e=>e.uid==id)[0].img:`${this.data.endpoint}/${this.data.bucket}/${this.data.prefix}${id}?${this.data.users[id]}`;
   }
