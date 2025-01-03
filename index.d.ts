@@ -1,15 +1,13 @@
 export = usrbg;
 declare class usrbg {
-    constructor(v?: number);
-    v: number;
     load(): Promise<void>;
     data: any;
     /**
-    * @param {string | number} id
+    * @param {string} id
     */
-    has(id: string | number): boolean;
+    has(id: string): boolean;
     /**
-    * @param {string | number} id
+    * @param {string} id
     */
-    get(id: string | number): string;
+    get(id: string): string;
 }
