@@ -6,7 +6,6 @@ A api wrapper for [usrbg](https://github.com/Discord-Custom-Covers/usrbg)
 let usrbg = require('usrbg');
 
 let instance = new usrbg(); // Create usrbg instance
-// Optionaly pass a version: 1 or 2
 
 (async()=>{
   await instance.load() // Load data
@@ -15,3 +14,5 @@ let instance = new usrbg(); // Create usrbg instance
   console.log(instance.get('user id')) // Get banner url
 })()
 ```
+> [!NOTE]\
+> usrbg api version 1 no longer works
