@@ -1,11 +1,10 @@
 {
   "name": "usrbg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A usrbg api wrapper",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "type": "commonjs",
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inventionpro/usrbg.git"
