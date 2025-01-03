@@ -1,35 +1,21 @@
 class usrbg {
-  constructor(v = 2) {
-    if (![1, 2].includes(v)) throw new Error('Invalid usrbg version')
-    this.v = v;
-  }
   async load() {
-    let data;
-    switch (this.v) {
-      case 1:
-        data = await fetch('https://raw.githubusercontent.com/Discord-Custom-Covers/usrbg/master/dist/usrbg.json');
-        data = await data.json();
-        this.data = data;
-        break;
-      case 2:
-        data = await fetch('https://usrbg.is-hardly.online/users');
-        data = await data.json();
-        this.data = data;
-        break;
+    try {
+      let data = await fetch('https://usrbg.is-hardly.online/users');
+      data = await data.json();
+      this.data = data;
+    } catch(err) {
+      throw new Error('Failed to load data')
     }
   }
   has(id) {
     if (!this.data) throw new Error('You need to use load before using has');
-    if (this.v == 1) {
-      return !!this.data.filter(e=>e.uid==id)[0];
-    } else if (this.v == 2) {
-      return !!this.data.users[id];
-    }
+    return !!this.data.users[id];
   }
   get(id) {
     if (!this.data) throw new Error('You need to use load before using get');
     if (!this.has(id)) return null;
-    return this.v==1?this.data.filter(e=>e.uid==id)[0].img:`${this.data.endpoint}/${this.data.bucket}/${this.data.prefix}${id}?${this.data.users[id]}`;
+    return `${this.data.endpoint}/${this.data.bucket}/${this.data.prefix}${id}?${this.data.users[id]}`;
   }
 }
 
